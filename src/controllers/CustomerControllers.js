@@ -8,12 +8,12 @@ const Customer = require("../models/Customer");
 const loadAllCustomers = (req, res) => {
   let filter = {};
   const customerAuth = req.authCustomer.roles;
-  if (!req.authCustomer.roles.includes("admin")) {
-    return res.status(401).json({
-      status: false,
-      error: "Only admin can get customers list",
-    });
-  }
+  // if (!req.authCustomer.roles.includes("admin")) {
+  //   return res.status(401).json({
+  //     status: false,
+  //     error: "Only admin can get customers list",
+  //   });
+  // }
   if (req.query.id) filter._id = req.query.id;
 
   Customer.find(filter)
